@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibir dados JSON</title>
+</head>
+<body>
+    <div id="dados-json"></div>
+
+    <script>
+        fetch('data.json')
+
+        .then(respostaApi => respostaApi.json())
+        
+        .then(data => {
+            const dadosDiv = document.getElementById('dados-json')
+            dadosDiv.innerHTML =`
+                <p><strong>Nome:</strong> ${data.nome}</p>
+                <p><strong>Idade:</strong> ${data.idade}</p>
+                <p><strong>Email</strong> ${data.email}</p>
+            `;
+        })
+        
+        .catch(console.log('Erro'))
+
+    </script>
+</body>
+</html>
